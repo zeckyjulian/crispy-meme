@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Github } from "lucide-react"
 
 const projects = [
     {
@@ -8,7 +8,7 @@ const projects = [
         image: "/projects/project1.jpg",
         tags: ["Unity"],
         demoUrl: "#",
-        githubUrl: "#,"
+        githubUrl: "https://github.com/zeckyjulian",
     },
     {
         id: 2,
@@ -17,7 +17,7 @@ const projects = [
         image: "/projects/project2.png",
         tags: ["CodeIgniter", "PHP", "MySql", "Bootstrap", "Javascript"],
         demoUrl: "#",
-        githubUrl: "#,"
+        githubUrl: "https://github.com/zeckyjulian",
     },
     {
         id: 3,
@@ -26,7 +26,7 @@ const projects = [
         image: "/projects/project3.png",
         tags: ["Laravel", "PHP", "MySql", "Bootstrap"],
         demoUrl: "#",
-        githubUrl: "#,"
+        githubUrl: "https://github.com/zeckyjulian",
     },
 ]
 
@@ -44,22 +44,49 @@ export const ProjectsSection = () => {
                     {projects.map((project, key) => (
                         <div
                             key={key}
-                            className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
-                        >
+                            className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover flex flex-col"
+                            >
+                            {/* Gambar */}
                             <div className="h-48 overflow-hidden">
-                                <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                                <img
+                                src={project.image}
+                                alt={project.title}
+                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                />
                             </div>
 
-                            <div className="p-6">
-                                <div className="flex flex-wrap gap-2 mb-4">
-                                    {project.tags.map((tag) => (
-                                        <span className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground">{tag}</span>
-                                    ))}
+                            {/* Konten + Footer */}
+                            <div className="flex flex-col flex-1 p-6">
+                                {/* Konten utama (selalu di atas) */}
+                                <div>
+                                    <div className="flex flex-wrap gap-2 mb-4">
+                                        {project.tags.map((tag) => (
+                                            <span
+                                                key={tag}
+                                                className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground"
+                                            >
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+
+                                    <h3 className="text-xl font-semibold mb-1">{project.title}</h3>
+                                    <p className="text-muted-foreground text-sm">
+                                        {project.description}
+                                    </p>
+                                </div>
+
+                                {/* Footer (selalu di bawah) */}
+                                <div className="mt-auto pt-4 flex items-center justify-start">
+                                    <a
+                                        href={project.githubUrl}
+                                        target="_blank"
+                                        className="inline-flex items-center text-foreground/80 hover:text-primary transition-colors duration-300"
+                                    >
+                                        <Github className="w-5 h-5" />
+                                    </a>
                                 </div>
                             </div>
-
-                            <h3 className="text-xl font-semibold mb-1"> {project.title} </h3>
-                            <p className="text-muted-foreground text-sm mb-4"> {project.description} </p>
                         </div>
                     ))}
                 </div>
