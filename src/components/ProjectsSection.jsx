@@ -1,4 +1,4 @@
-import { ArrowRight, Github } from "lucide-react"
+import { ArrowRight, ArrowUpRight, Github } from "lucide-react"
 
 const projects = [
     {
@@ -24,7 +24,7 @@ const projects = [
         title: "E-Commerce",
         description: "A modern e-commerce website for fashion.",
         image: "/projects/project3.png",
-        tags: ["Laravel", "PHP", "MySql", "Bootstrap"],
+        tags: ["Laravel", "PHP", "MySql", "Tailwind CSS", "Javascript", "ReactJS"],
         demoUrl: "#",
         githubUrl: "https://github.com/zeckyjulian",
     },
@@ -78,6 +78,13 @@ export const ProjectsSection = () => {
 
                                 {/* Footer (selalu di bawah) */}
                                 <div className="mt-auto pt-4 flex items-center justify-start">
+                                    <a
+                                        href={project.demoUrl}
+                                        target="_blank"
+                                        className="inline-flex items-center text-foreground/80 hover:text-primary transition-colors duration-300"
+                                    >
+                                        <ArrowUpRight className="w-5 h-5" />
+                                    </a>
                                     <a
                                         href={project.githubUrl}
                                         target="_blank"
