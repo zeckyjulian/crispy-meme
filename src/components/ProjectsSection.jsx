@@ -77,7 +77,7 @@ export const ProjectsSection = () => {
                                 </div>
 
                                 {/* Footer (selalu di bawah) */}
-                                <div className="mt-auto pt-4 flex items-center justify-start">
+                                <div className="mt-auto pt-4 flex items-center justify-start gap-2">
                                     <a
                                         href={project.demoUrl}
                                         target="_blank"
